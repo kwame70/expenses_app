@@ -7,6 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -18,11 +19,15 @@ class HomePage extends StatelessWidget {
               "Hello, there!",
               style: TextStyle(color: Colors.white, fontSize: 30),
             ),
-            Image.asset("assets/images/landing_page.png"),
-            const SizedBox(
-              height: 8,
-            ),
-            const MyTextWidget(
+            Image.asset("assets/images/login.png"),
+            MyTextWidget(
+              icon: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.email_outlined,
+                  color: Colors.white,
+                ),
+              ),
               hintext: "Email/Username",
               keyboardType: TextInputType.emailAddress,
               hideText: false,
@@ -30,7 +35,14 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const MyTextWidget(
+            MyTextWidget(
+              icon: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.remove_red_eye_outlined,
+                  color: Colors.white,
+                ),
+              ),
               hintext: "Password",
               hideText: true,
             ),
@@ -39,7 +51,7 @@ class HomePage extends StatelessWidget {
             ),
             const Text(
               "Forgot password?",
-              style: TextStyle(color: Colors.white, fontSize: 18),
+              style: TextStyle(color: Colors.white, fontSize: 15),
             ),
             ElevatedButton.icon(
               onPressed: () {},
