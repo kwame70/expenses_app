@@ -1,5 +1,4 @@
 import 'package:expense_tracker/pages/home_page.dart';
-import 'package:expense_tracker/pages/sign_in.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,7 +23,9 @@ class MyApp extends StatelessWidget {
           enabledBorder: border,
           focusedBorder: border,
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromRGBO(89, 213, 244, 1),
+        ),
         useMaterial3: true,
       ),
       home: const HomePage(),
