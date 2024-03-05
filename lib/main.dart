@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           focusedBorder: border,
         ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromRGBO(89, 213, 244, 1),
+          seedColor: Colors.teal,
         ),
         useMaterial3: true,
       ),

@@ -31,14 +31,17 @@ class ActivityCard extends StatelessWidget {
           backgroundColor: Colors.white,
           child: Icon(icon),
         ),
+        // expense category
         title: Text(
           category,
           style: color,
         ),
+        // notes
         subtitle: Text(
           "$notes \n$formattedDate",
           style: color,
         ),
+        // amount
         trailing: Text(
           amount.toString(),
           style: const TextStyle(

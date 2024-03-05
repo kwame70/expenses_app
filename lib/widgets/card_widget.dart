@@ -6,6 +6,7 @@ class MyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //main card
     return SizedBox(
       height: 200,
       width: double.infinity,
