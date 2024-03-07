@@ -13,20 +13,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int currentPageIndex = 1;
+
   List<Widget> pages = const [Welcome(), AddExpense(), Statistics()];
+
   @override
   Widget build(BuildContext context) {
-    int currentPageIndex = 0;
     return Scaffold(
-      bottomNavigationBar:
-          NavigationBar(selectedIndex: currentPageIndex, destinations: const [
-        NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-        NavigationDestination(
-            icon: Icon(Icons.add_circle_outline_sharp), label: "Add Expenses"),
-        NavigationDestination(
-            icon: Icon(Icons.analytics_outlined), label: "Statistics"),
-      ]),
-      body: const Welcome(),
+      bottomNavigationBar: NavigationBar(
+          backgroundColor: Color.fromARGB(255, 134, 218, 239),
+          onDestinationSelected: (value) {
+            setState(() {
+              currentPageIndex = value;
+            });
+          },
+          selectedIndex: currentPageIndex,
+          destinations: const [
+            NavigationDestination(
+                icon: Icon(
+                  Icons.home,
+                  size: 35,
+                ),
+                label: "Home"),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.add_circle_outline_sharp,
+                  size: 35,
+                ),
+                label: "Add Expenses"),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.analytics_outlined,
+                  size: 35,
+                ),
+                label: "Statistics"),
+          ]),
+      body: pages[currentPageIndex],
     );
   }
 }
