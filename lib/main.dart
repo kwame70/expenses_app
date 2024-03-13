@@ -18,13 +18,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expenses App',
       theme: ThemeData(
+        navigationBarTheme: const NavigationBarThemeData(
+          labelTextStyle: MaterialStatePropertyAll(
+            TextStyle(fontSize: 15),
+          ),
+        ),
         fontFamily: "Ubuntu",
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder: border,
           focusedBorder: border,
         ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
+          seedColor: const Color.fromRGBO(89, 213, 244, 1),
         ),
         useMaterial3: true,
       ),
