@@ -1,4 +1,4 @@
-import 'package:expense_tracker/widgets/text_widget.dart';
+import 'package:expense_tracker/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class AddExpense extends StatefulWidget {
@@ -13,14 +13,6 @@ class _AddExpenseState extends State<AddExpense> {
 
   @override
   Widget build(BuildContext context) {
-    const border = OutlineInputBorder(
-      borderSide: BorderSide(
-        color: Color.fromRGBO(89, 213, 244, 1),
-      ),
-      borderRadius: BorderRadius.all(
-        Radius.circular(30),
-      ),
-    );
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -29,10 +21,10 @@ class _AddExpenseState extends State<AddExpense> {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Center(
+              //add expenses
               child: SizedBox(
                 width: 200,
                 child: TextField(
@@ -45,8 +37,8 @@ class _AddExpenseState extends State<AddExpense> {
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
-                    focusedBorder: border,
-                    enabledBorder: border,
+                    focusedBorder: Constants.blueBorder,
+                    enabledBorder: Constants.blueBorder,
                   ),
                 ),
               ),
@@ -54,6 +46,7 @@ class _AddExpenseState extends State<AddExpense> {
             const SizedBox(
               height: 20,
             ),
+            // category selection
             DropdownMenu(
                 hintText: "Select category",
                 onSelected: (value) {
@@ -62,21 +55,13 @@ class _AddExpenseState extends State<AddExpense> {
                   });
                 },
                 leadingIcon: Icon(selectedIcon),
+                width: 433,
                 initialSelection: "Shopping",
-                width: 250,
                 inputDecorationTheme: const InputDecorationTheme(
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                    color: Color.fromRGBO(89, 213, 244, 1),
-                  )),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color.fromRGBO(89, 213, 244, 1),
-                    ),
-                  ),
+                  focusedBorder: Constants.recBlueBorder,
+                  enabledBorder: Constants.recBlueBorder,
                 ),
                 menuStyle: const MenuStyle(
-                  shape: MaterialStatePropertyAll(CircleBorder()),
                   side: MaterialStatePropertyAll(
                     BorderSide(
                       color: Color.fromRGBO(89, 213, 244, 1),
@@ -96,25 +81,28 @@ class _AddExpenseState extends State<AddExpense> {
             const SizedBox(
               height: 20,
             ),
+            // additional notes
             const TextField(
               decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                  color: Color.fromRGBO(89, 213, 244, 1),
-                )),
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                  color: Color.fromRGBO(89, 213, 244, 1),
-                )),
+                hintText: "Additional notes",
+                focusedBorder: Constants.recBlueBorder,
+                enabledBorder: Constants.recBlueBorder,
               ),
             ),
             const SizedBox(
               height: 20,
             ),
+            //add expense button
             ElevatedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.save),
               label: const Text("Add expense"),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(60),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
             ),
           ],
         ),
