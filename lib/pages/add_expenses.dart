@@ -10,6 +10,7 @@ class AddExpense extends StatefulWidget {
 
 class _AddExpenseState extends State<AddExpense> {
   IconData selectedIcon = Icons.category_rounded;
+  final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +49,18 @@ class _AddExpenseState extends State<AddExpense> {
             ),
             // category selection
             DropdownMenu(
+                controller: controller,
+                enabled: true,
+                requestFocusOnTap: false,
                 hintText: "Select category",
                 onSelected: (value) {
                   setState(() {
-                    selectedIcon = value as IconData;
+                    // selectedIcon = value as IconData;
                   });
                 },
                 leadingIcon: Icon(selectedIcon),
-                width: 433,
-                initialSelection: "Shopping",
+                width: 390,
+                initialSelection: "clock",
                 inputDecorationTheme: const InputDecorationTheme(
                   focusedBorder: Constants.recBlueBorder,
                   enabledBorder: Constants.recBlueBorder,
@@ -68,16 +72,20 @@ class _AddExpenseState extends State<AddExpense> {
                     ),
                   ),
                 ),
-                dropdownMenuEntries: const <DropdownMenuEntry<IconData>>[
-                  DropdownMenuEntry(
-                      value: Icons.shopping_cart_checkout, label: "Shopping"),
-                  DropdownMenuEntry(
-                      value: Icons.fastfood_outlined, label: "Food"),
-                  DropdownMenuEntry(
-                      value: Icons.card_travel_outlined, label: "Travel"),
-                  DropdownMenuEntry(value: Icons.house_outlined, label: "Rent"),
-                  DropdownMenuEntry(value: Icons.outbox_sharp, label: "Other"),
-                ]),
+                dropdownMenuEntries:
+                    IconDisplay.values.map<DropdownMenuEntry<IconDisplay>>((e) {
+                  return DropdownMenuEntry(value: e, label: e.label);
+                }).toList()
+
+                //   const <DropdownMenuEntry<IconData>>[
+                // DropdownMenuEntry(
+                //     value: Icons.access_alarms_outlined, label: "clock"),
+                // DropdownMenuEntry(
+                //     value: Icons.accessibility_rounded,
+                //     label: "accessibility"),
+                // DropdownMenuEntry(value: Icons.abc, label: "alpha"),
+                ),
+
             const SizedBox(
               height: 20,
             ),
