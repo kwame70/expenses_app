@@ -18,6 +18,9 @@ class Constants {
       Radius.circular(15),
     ),
   );
+
+  static const whiteColorTextStyle = TextStyle(color: Colors.white);
+  static const blackColorTextStyle = TextStyle(color: Colors.black);
 }
 
 enum IconDisplay {

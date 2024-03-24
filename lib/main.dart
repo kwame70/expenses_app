@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         navigationBarTheme: const NavigationBarThemeData(
           labelTextStyle: MaterialStatePropertyAll(
-            TextStyle(fontSize: 15),
+            TextStyle(fontSize: 15, color: Colors.white),
           ),
         ),
         fontFamily: "Ubuntu",

@@ -1,3 +1,4 @@
+import 'package:expense_tracker/constants/constants.dart';
 import 'package:expense_tracker/constants/entry_list.dart';
 import 'package:expense_tracker/widgets/activity_card.dart';
 import 'package:expense_tracker/widgets/card_widget.dart';
@@ -17,6 +18,25 @@ class Welcome extends StatelessWidget {
       "widgets_outlined": Icons.widgets_outlined,
     };
 
+    // icon colors for each category
+    Color iconColors(String iconCategory) {
+      switch (iconCategory) {
+        case "Shopping":
+          return Colors.blueAccent;
+        case "Rent":
+          return Colors.greenAccent;
+        case "Food":
+          return Colors.amberAccent;
+        case "Others":
+          return Colors.orangeAccent;
+        case "Travel":
+          return Colors.pinkAccent;
+
+        default:
+          return Colors.white;
+      }
+    }
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -24,11 +44,20 @@ class Welcome extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              title: const Text("Welcome!"),
-              subtitle: const Text("killer Nkuto"),
+              title: const Text(
+                "Welcome!",
+                style: Constants.whiteColorTextStyle,
+              ),
+              subtitle: const Text(
+                "killer Nkuto",
+                style: Constants.whiteColorTextStyle,
+              ),
               trailing: IconButton(
+                color: Colors.white,
                 onPressed: () {},
-                icon: const Icon(Icons.settings),
+                icon: const Icon(
+                  Icons.settings,
+                ),
               ),
               leading: const CircleAvatar(
                 backgroundImage: AssetImage("assets/images/male_avatar.png"),
@@ -36,13 +65,13 @@ class Welcome extends StatelessWidget {
               ),
             ),
             //main card
-            const MyCard(totalExp: "\$ 2,000  USD"),
+            const MyCard(totalExp: "\$ 10,000  USD"),
             const SizedBox(
               height: 10,
             ),
             const Text(
               "Recent Activities",
-              style: TextStyle(fontSize: 25),
+              style: TextStyle(fontSize: 25, color: Colors.white),
             ),
             Expanded(
                 child: ListView.builder(
@@ -51,9 +80,8 @@ class Welcome extends StatelessWidget {
                 final entryList = entries[index];
                 //activity card
                 return ActivityCard(
-                    bgColor: index.isEven
-                        ? const Color.fromRGBO(57, 67, 70, 1)
-                        : const Color.fromRGBO(65, 201, 226, 1),
+                    bgColor: Colors.white,
+                    iconBgColor: iconColors(entryList["category"].toString()),
                     category: entryList["category"].toString(),
                     icon: iconDataMap[entryList["icon"].toString()]!,
                     notes: entryList["notes"].toString(),

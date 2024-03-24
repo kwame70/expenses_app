@@ -1,3 +1,4 @@
+import 'package:expense_tracker/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -9,6 +10,7 @@ class ActivityCard extends StatelessWidget {
     required this.notes,
     required this.amount,
     required this.bgColor,
+    required this.iconBgColor,
   });
 
   final IconData icon;
@@ -16,10 +18,11 @@ class ActivityCard extends StatelessWidget {
   final String notes;
   final double amount;
   final Color bgColor;
+  final Color iconBgColor;
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle color = TextStyle(color: Colors.white);
+    // const TextStyle color = TextStyle(color: Colors.white);
 
     final DateTime now = DateTime.now();
     DateFormat formatter = DateFormat.yMMMd();
@@ -30,18 +33,21 @@ class ActivityCard extends StatelessWidget {
       elevation: 5,
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: Icon(icon),
+          backgroundColor: iconBgColor,
+          child: Icon(
+            icon,
+            color: Colors.white,
+          ),
         ),
         // expense category
         title: Text(
           category,
-          style: color,
+          // style: color,
         ),
         // notes
         subtitle: Text(
           "$notes \n$formattedDate",
-          style: color,
+          style: Constants.blackColorTextStyle,
         ),
         // amount
         trailing: Text(
@@ -49,7 +55,7 @@ class ActivityCard extends StatelessWidget {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            // color: Colors.white,
           ),
         ),
       ),

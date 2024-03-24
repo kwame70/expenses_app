@@ -11,8 +11,8 @@ class MyCard extends StatelessWidget {
       height: 200,
       width: double.infinity,
       child: Card(
-        color: const Color.fromRGBO(89, 213, 244, 1),
-        elevation: 20.0,
+        color: Colors.white,
+        elevation: 50.0,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
@@ -22,7 +22,9 @@ class MyCard extends StatelessWidget {
           child: Text(
             totalExp,
             style: const TextStyle(
-                fontSize: 45, fontWeight: FontWeight.bold, color: Colors.white),
+                fontSize: 45,
+                fontWeight: FontWeight.bold,
+                color: Colors.pinkAccent),
           ),
         ),
       ),

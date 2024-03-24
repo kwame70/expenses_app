@@ -18,8 +18,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    const Color whiteColor = Colors.white;
     return Scaffold(
+      backgroundColor: Colors.grey,
       bottomNavigationBar: NavigationBar(
+          indicatorColor: Colors.black,
+          backgroundColor: Colors.grey,
           onDestinationSelected: (value) {
             setState(() {
               currentPageIndex = value;
@@ -29,18 +33,21 @@ class _HomePageState extends State<HomePage> {
           destinations: const [
             NavigationDestination(
                 icon: Icon(
+                  color: whiteColor,
                   Icons.home,
                   size: 35,
                 ),
                 label: "Home"),
             NavigationDestination(
                 icon: Icon(
+                  color: whiteColor,
                   Icons.add_circle_outline_sharp,
                   size: 35,
                 ),
                 label: "Add Expenses"),
             NavigationDestination(
                 icon: Icon(
+                  color: whiteColor,
                   Icons.analytics_outlined,
                   size: 35,
                 ),
