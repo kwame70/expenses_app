@@ -8,12 +8,14 @@ class ActivityCard extends StatelessWidget {
     required this.icon,
     required this.notes,
     required this.amount,
+    required this.bgColor,
   });
 
   final IconData icon;
   final String category;
   final String notes;
   final double amount;
+  final Color bgColor;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ActivityCard extends StatelessWidget {
     String formattedDate = formatter.format(now);
 
     return Card(
-      color: const Color.fromARGB(255, 11, 174, 215),
+      color: bgColor,
       elevation: 5,
       child: ListTile(
         leading: CircleAvatar(

@@ -51,6 +51,9 @@ class Welcome extends StatelessWidget {
                 final entryList = entries[index];
                 //activity card
                 return ActivityCard(
+                    bgColor: index.isEven
+                        ? const Color.fromRGBO(57, 67, 70, 1)
+                        : const Color.fromRGBO(65, 201, 226, 1),
                     category: entryList["category"].toString(),
                     icon: iconDataMap[entryList["icon"].toString()]!,
                     notes: entryList["notes"].toString(),

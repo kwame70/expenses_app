@@ -32,7 +32,7 @@ final entries = [
   {
     "category": "Food",
     "icon": "fastfood_outlined",
-    "notes": "fufu",
+    "notes": "Fufu",
     "amount": 100.30,
   },
 ];
