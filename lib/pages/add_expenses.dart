@@ -9,21 +9,23 @@ class AddExpense extends StatefulWidget {
 }
 
 class _AddExpenseState extends State<AddExpense> {
-  IconData selectedIcon = Icons.category_rounded;
+  IconDisplay? selectedIcon;
   final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey,
       appBar: AppBar(
+        elevation: 50,
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text("Add Expenses"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Center(
               //add expenses
@@ -36,11 +38,12 @@ class _AddExpenseState extends State<AddExpense> {
                     prefixText: "\$",
                     hintText: "0",
                     hintStyle: TextStyle(
+                      color: Colors.white,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
-                    focusedBorder: Constants.blueBorder,
-                    enabledBorder: Constants.blueBorder,
+                    focusedBorder: Constants.blackCircBorder,
+                    enabledBorder: Constants.blackCircBorder,
                   ),
                 ),
               ),
@@ -49,22 +52,37 @@ class _AddExpenseState extends State<AddExpense> {
               height: 20,
             ),
             // category selection
-            DropdownMenu(
+            DropdownMenu<IconDisplay>(
+                textStyle: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
                 controller: controller,
-                enabled: true,
+                // enableFilter: true,
                 requestFocusOnTap: false,
                 hintText: "Select category",
-                onSelected: (value) {
+                onSelected: (IconDisplay? value) {
                   setState(() {
-                    // selectedIcon = value as IconData;
+                    selectedIcon = value;
                   });
                 },
-                leadingIcon: Icon(selectedIcon),
+                leadingIcon: Icon(
+                    color: Colors.white,
+                    //selecting enum's icon value
+                    selectedIcon?.icon ?? Icons.shopping_cart_outlined),
+                trailingIcon: const Icon(
+                  Icons.arrow_drop_down_circle_outlined,
+                  color: Colors.white,
+                ),
                 width: 390,
-                initialSelection: "clock",
+                initialSelection: IconDisplay.shopping,
                 inputDecorationTheme: const InputDecorationTheme(
-                  focusedBorder: Constants.recBlueBorder,
-                  enabledBorder: Constants.recBlueBorder,
+                  focusedBorder: Constants.blackBorder,
+                  enabledBorder: Constants.blackBorder,
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
                 ),
                 menuStyle: const MenuStyle(
                   side: MaterialStatePropertyAll(
@@ -92,10 +110,15 @@ class _AddExpenseState extends State<AddExpense> {
             ),
             // additional notes
             const TextField(
+              style: Constants.whiteColorTextStyle,
               decoration: InputDecoration(
                 hintText: "Additional notes",
-                focusedBorder: Constants.recBlueBorder,
-                enabledBorder: Constants.recBlueBorder,
+                hintStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+                focusedBorder: Constants.blackBorder,
+                enabledBorder: Constants.blackBorder,
               ),
             ),
             const SizedBox(
@@ -104,9 +127,20 @@ class _AddExpenseState extends State<AddExpense> {
             //add expense button
             ElevatedButton.icon(
               onPressed: () {},
-              icon: const Icon(Icons.save),
-              label: const Text("Add expense"),
+              icon: const Icon(
+                Icons.save,
+                color: Colors.white,
+              ),
+              label: const Text(
+                "Add expense",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
               style: ElevatedButton.styleFrom(
+                elevation: 25,
+                backgroundColor: Colors.black,
                 minimumSize: const Size.fromHeight(60),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),

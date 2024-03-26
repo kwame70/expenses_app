@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static const blueBorder = OutlineInputBorder(
+  static const blackCircBorder = OutlineInputBorder(
     borderSide: BorderSide(
-      color: Color.fromRGBO(89, 213, 244, 1),
+      color: Colors.black,
     ),
     borderRadius: BorderRadius.all(
       Radius.circular(30),
@@ -13,6 +13,24 @@ class Constants {
   static const recBlueBorder = OutlineInputBorder(
     borderSide: BorderSide(
       color: Color.fromRGBO(89, 213, 244, 1),
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(15),
+    ),
+  );
+
+  static const recWhiteBorder = OutlineInputBorder(
+    borderSide: BorderSide(
+      color: Colors.white,
+    ),
+    borderRadius: BorderRadius.all(
+      Radius.circular(15),
+    ),
+  );
+
+  static const blackBorder = OutlineInputBorder(
+    borderSide: BorderSide(
+      color: Colors.black,
     ),
     borderRadius: BorderRadius.all(
       Radius.circular(15),

@@ -80,7 +80,7 @@ class Welcome extends StatelessWidget {
                 final entryList = entries[index];
                 //activity card
                 return ActivityCard(
-                    bgColor: Colors.white,
+                    bgColor: const Color.fromRGBO(255, 255, 255, 1),
                     iconBgColor: iconColors(entryList["category"].toString()),
                     category: entryList["category"].toString(),
                     icon: iconDataMap[entryList["icon"].toString()]!,
